@@ -13,6 +13,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    {{-- Toastr js for notifications --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/toastr.min.css') }}">
     {{-- FontAwesome --}}
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
 </head>
@@ -99,5 +101,32 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    {{-- Toastr js for notifications --}}
+    <script type="text/javascript" src="{{ asset('js/toastr.min.js') }}"></script>
+
+    {{-- Success Notification using Toastr js --}}
+    <script type="text/javascript">
+        @if(Session::has('success'))
+            toastr.options = {
+                              "closeButton": true,
+                              "debug": false,
+                              "newestOnTop": false,
+                              "progressBar": false,
+                              "positionClass": "toast-top-right",
+                              "preventDuplicates": false,
+                              "onclick": null,
+                              "showDuration": "300",
+                              "hideDuration": "1000",
+                              "timeOut": "5000",
+                              "extendedTimeOut": "1000",
+                              "showEasing": "swing",
+                              "hideEasing": "linear",
+                              "showMethod": "fadeIn",
+                              "hideMethod": "fadeOut"
+                            }
+            toastr.success("{{ Session::get('success') }}");
+        @endif
+    </script>
+
 </body>
 </html>
