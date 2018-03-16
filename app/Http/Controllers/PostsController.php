@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
 
 class PostsController extends Controller
 {
@@ -23,7 +24,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        return view('admin.posts.create')->with('categories', Category::all());
     }
 
     /**
@@ -39,6 +40,12 @@ class PostsController extends Controller
             'featured' => 'required|image',
             'content' => 'required'
         ]);
+
+        $featured = $request->featured;
+
+        // TO prevent duplicate images with same name in DB
+
+        $featured_new_name = time().$featured->getClientOriginalName();
 
         dd($request->all());
     }
