@@ -18,7 +18,7 @@
 						Edit
 					</th>
 					<th>
-						Trash
+						Restore
 					</th>
 				</thead>
 
@@ -35,9 +35,7 @@
 								Edit
 							</td>
 							<td>
-								<a href="{{ route('post.delete', ['id' => $post->id]) }}" class="btn btn-danger">
-									<i class="far fa-trash-alt"></i>
-								</a>
+								Delete
 							</td>
 						</tr>
 					@endforeach
