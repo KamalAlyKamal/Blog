@@ -113,6 +113,7 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //SOFT DELETE
     public function destroy($id)
     {
         $post = Post::find($id);
@@ -124,10 +125,35 @@ class PostsController extends Controller
         return redirect()->back();
     }
 
+    //Returns a view with trashed (Soft deleted) posts
     public function trashed()
     {
         $posts = Post::onlyTrashed()->get();
 
         return view('admin.posts.trashed')->with('posts', $posts);
+    }
+
+    //Permenantly deletes posts that were soft deleted.
+    public function kill($id)
+    {
+        $post = Post::withTrashed()->where('id', $id)->first();
+        
+        $post->forceDelete();
+
+        Session::flash('success', 'Post deleted permenantly.');
+
+        return redirect()->back();
+    }
+
+    //Restores a trashed post.
+    public function restore($id)
+    {
+        $post = Post::onlyTrashed()->where('id', $id)->first();
+
+        $post->restore();
+
+        Session::flash('success', 'Post restored successfully.');
+
+        return redirect()->route('posts');
     }
 }

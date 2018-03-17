@@ -20,6 +20,9 @@
 					<th>
 						Restore
 					</th>
+					<th>
+						Delete
+					</th>
 				</thead>
 
 				<tbody>
@@ -35,7 +38,14 @@
 								Edit
 							</td>
 							<td>
-								Delete
+								<a href="{{ route('post.restore', ['id' => $post->id]) }}" class="btn btn-success">
+									<i class="far fa-window-restore"></i>
+								</a>
+							</td>
+							<td>
+								<a href="{{ route('post.kill', ['id' => $post->id]) }}" class="btn btn-danger">
+									<i class="far fa-trash-alt"></i>
+								</a>
 							</td>
 						</tr>
 					@endforeach
