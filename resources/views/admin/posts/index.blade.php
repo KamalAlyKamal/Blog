@@ -32,7 +32,9 @@
 								{{ $post->title }}
 							</td>
 							<td>
-								Edit
+								<a href="{{ route('post.edit', ['id' => $post->id]) }}" class="btn btn-info">
+									<i class="far fa-edit"></i>
+								</a>
 							</td>
 							<td>
 								<a href="{{ route('post.delete', ['id' => $post->id]) }}" class="btn btn-danger">

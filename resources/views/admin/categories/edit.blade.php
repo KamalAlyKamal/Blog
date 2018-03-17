@@ -6,7 +6,7 @@
 	@include('admin.includes.errors')
 
 	<div class="card">
-		<h5 class="card-title text-center">Edit category : {{ $category->name }}</h5>
+		<h5 class="card-title text-center">Edit Category : {{ $category->name }}</h5>
 		<div class="card-body">
 			{{-- enctype for image upload --}}
 				<form action="{{ route('category.update', ['id' => $category->id]) }}" method="POST"> 
