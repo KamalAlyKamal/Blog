@@ -13,7 +13,7 @@ class Post extends Model
 
 	// For mass assignment
 	protected $fillable = [
-		'title', 'featured', 'content', 'category_id'
+		'title', 'featured', 'content', 'category_id', 'slug'
 	];
 
 	// new timestamp

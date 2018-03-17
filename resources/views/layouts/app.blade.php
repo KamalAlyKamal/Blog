@@ -80,6 +80,9 @@
                                     <a href="{{ route('categories') }}">List Categories</a>
                                 </li>
                                 <li class="list-group-item">
+                                    <a href="{{ route('posts') }}">List Posts</a>
+                                </li>
+                                <li class="list-group-item">
                                     <a href="{{ route('post.create') }}">Create new post</a>
                                 </li>
                                 <li class="list-group-item">
@@ -125,6 +128,29 @@
                               "hideMethod": "fadeOut"
                             }
             toastr.success("{{ Session::get('success') }}");
+
+        @elseif (Session::has('info')) 
+        {
+                toastr.options = {
+                              "closeButton": true,
+                              "debug": false,
+                              "newestOnTop": false,
+                              "progressBar": false,
+                              "positionClass": "toast-top-right",
+                              "preventDuplicates": false,
+                              "onclick": null,
+                              "showDuration": "300",
+                              "hideDuration": "1000",
+                              "timeOut": "5000",
+                              "extendedTimeOut": "1000",
+                              "showEasing": "swing",
+                              "hideEasing": "linear",
+                              "showMethod": "fadeIn",
+                              "hideMethod": "fadeOut"
+                            }
+            toastr.info("{{ Session::get('info') }}");
+        }
+
         @endif
     </script>
 

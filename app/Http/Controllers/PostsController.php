@@ -16,7 +16,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.posts.index')->with('posts', Post::all());
     }
 
     /**
@@ -26,7 +26,15 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create')->with('categories', Category::all());
+        $categories = Category::all();
+        if($categories->count() == 0)
+        {
+            Session::flash('info', 'You must have some categories before creating a post.');
+
+            return redirect()->back();
+        }
+
+        return view('admin.posts.create')->with('categories', $categories);
     }
 
     /**
@@ -55,10 +63,13 @@ class PostsController extends Controller
             'title' => $request->title,
             'content' => $request->content,
             'featured' => 'uploads/posts/'.$featured_new_name,
-            'category_id' => $request->category_id
+            'category_id' => $request->category_id,
+            'slug' => str_slug($request->title) //This function to generate a slug from a string ex: create a 5.6 project -> create-a-56-project
         ]);
 
         Session::flash('success', 'Post created successfully');
+
+        return redirect()->back();
 
     }
 
