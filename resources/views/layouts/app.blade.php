@@ -80,6 +80,9 @@
                                     <a href="{{ route('categories') }}">List Categories</a>
                                 </li>
                                 <li class="list-group-item">
+                                    <a href="{{ route('tags') }}">List Tags</a>
+                                </li>
+                                <li class="list-group-item">
                                     <a href="{{ route('posts') }}">List Posts</a>
                                 </li>
                                 <li class="list-group-item">
@@ -90,6 +93,9 @@
                                 </li>
                                 <li class="list-group-item">
                                     <a href="{{ route('category.create') }}">Create new category</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('tag.create') }}">Create new tag</a>
                                 </li>
                             </ul>
                         </div>
