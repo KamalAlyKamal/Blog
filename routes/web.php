@@ -152,5 +152,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 		'uses' => 'UsersController@store',
 		'as' => 'user.store'
 	]);
+
+	Route::get('/user/admin/{id}',[
+		'uses' => 'UsersController@admin',
+		'as' => 'user.admin'
+	]);
+
+	Route::get('/user/remove-admin/{id}',[
+		'uses' => 'UsersController@remove_admin',
+		'as' => 'user.remove.admin'
+	]);
 });
 
