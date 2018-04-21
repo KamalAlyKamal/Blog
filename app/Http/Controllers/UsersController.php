@@ -106,7 +106,16 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+
+
+        // OR you can make ON DELETE CASCADE in database.
+        $user->profile->delete();
+        $user->delete();
+
+        Session::flash('success', 'User deleted successfully!');
+
+        return redirect()->back();
     }
 
     public function admin($id)

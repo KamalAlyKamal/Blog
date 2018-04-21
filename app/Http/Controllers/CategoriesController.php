@@ -101,6 +101,11 @@ class CategoriesController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
+        foreach ($category->posts as $post) 
+        {
+            //To hard delete not soft delete
+            $post->forceDelete();
+        }
 
         $category->delete();
 
