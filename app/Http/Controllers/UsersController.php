@@ -9,6 +9,12 @@ use Session;
 
 class UsersController extends Controller
 {
+    //Any method in this controller will only be accessed if the user is an admin.
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
