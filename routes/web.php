@@ -50,6 +50,16 @@ Route::get('/results', function(){
 });
 
 
+// EMAIL ROUTE
+Route::post('/subscribe', function(){
+	$email = request('email');
+
+	Newsletter::subscribe($email);
+
+	Session::flash('success', 'You have subscribed successfully.');
+	return redirect()->back();
+});
+
 
 Auth::routes();
 
