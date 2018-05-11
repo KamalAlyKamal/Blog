@@ -22,7 +22,8 @@
     <!--Styles for RTL-->
 
     <!--<link rel="stylesheet" type="text/css" href="app/css/rtl.css">-->
-
+    {{-- Toastr js for notifications --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/toastr.min.css') }}">
     <!--External fonts-->
 
     <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
@@ -285,9 +286,10 @@
                 <div class="subscribe scrollme">
                     <div class="col-lg-6 col-lg-offset-5 col-md-6 col-md-offset-5 col-sm-12 col-xs-12">
                         <h4 class="subscribe-title">Email Newsletters!</h4>
-                        <form class="subscribe-form" method="post" action="">
+                        <form class="subscribe-form" method="post" action="/subscribe">
+                            {{csrf_field()}}
                             <input class="email input-standard-grey input-white" name="email" required="required" placeholder="Your Email Address" type="email">
-                            <button class="subscr-btn">subscribe
+                            <button class="subscr-btn" type="submit">subscribe
                                 <span class="semicircle--right"></span>
                             </button>
                         </form>
@@ -358,8 +360,8 @@
     <div class="container">
         <div class="row">
             <div class="form_search-wrap">
-                <form>
-                    <input class="overlay_search-input" placeholder="Type and hit Enter..." type="text">
+                <form method="GET" action="/results">
+                    <input class="overlay_search-input" name="query" placeholder="Type and hit Enter..." type="text">
                     <a href="#" class="overlay_search-close">
                         <span></span>
                         <span></span>
@@ -379,13 +381,58 @@
 <script src="{{asset('app/js/swiper.jquery.min.js')}}"></script>
 <script src="{{asset('app/js/theme-plugins.js')}}"></script>
 <script src="{{asset('app/js/main.js')}}"></script>
-<script src="{{asset('app/js/form-actions.js')}}"></script>
 
 <script src="{{asset('app/js/velocity.min.js')}}"></script>
 <script src="{{asset('app/js/ScrollMagic.min.js')}}"></script>
 <script src="{{asset('app/js/animation.velocity.min.js')}}"></script>
 
+<script type="text/javascript" src="{{ asset('js/toastr.min.js') }}"></script>
+{{-- Success Notification using Toastr js --}}
+    <script type="text/javascript">
+        @if(Session::has('success'))
+            toastr.options = {
+                              "closeButton": true,
+                              "debug": false,
+                              "newestOnTop": false,
+                              "progressBar": false,
+                              "positionClass": "toast-top-right",
+                              "preventDuplicates": false,
+                              "onclick": null,
+                              "showDuration": "300",
+                              "hideDuration": "1000",
+                              "timeOut": "5000",
+                              "extendedTimeOut": "1000",
+                              "showEasing": "swing",
+                              "hideEasing": "linear",
+                              "showMethod": "fadeIn",
+                              "hideMethod": "fadeOut"
+                            }
+            toastr.success("{{ Session::get('success') }}");
 
+        @elseif (Session::has('info')) 
+        {
+                toastr.options = {
+                              "closeButton": true,
+                              "debug": false,
+                              "newestOnTop": false,
+                              "progressBar": false,
+                              "positionClass": "toast-top-right",
+                              "preventDuplicates": false,
+                              "onclick": null,
+                              "showDuration": "300",
+                              "hideDuration": "1000",
+                              "timeOut": "5000",
+                              "extendedTimeOut": "1000",
+                              "showEasing": "swing",
+                              "hideEasing": "linear",
+                              "showMethod": "fadeIn",
+                              "hideMethod": "fadeOut"
+                            }
+            toastr.info("{{ Session::get('info') }}");
+        }
+
+        @endif
+    </script>
 <!-- ...end JS Script -->
 
 </body>
