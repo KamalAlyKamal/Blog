@@ -13,7 +13,7 @@ class Post extends Model
 
 	// For mass assignment
 	protected $fillable = [
-		'title', 'featured', 'content', 'category_id', 'slug'
+		'title', 'featured', 'content', 'category_id', 'slug', 'user_id'
 	];
 
 
@@ -36,5 +36,10 @@ class Post extends Model
     public function tags()
     {
     	return $this->belongsToMany('App\Tag');
+    }
+
+    public function user()
+    {
+    	return $this->belongsTo('App\User');
     }
 }

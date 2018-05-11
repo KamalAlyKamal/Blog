@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\Category;
 use App\Post;
 use App\Tag;
@@ -75,7 +76,8 @@ class PostsController extends Controller
             'content' => $request->content,
             'featured' => 'uploads/posts/'.$featured_new_name,
             'category_id' => $request->category_id,
-            'slug' => str_slug($request->title) //This function to generate a slug from a string ex: create a 5.6 project -> create-a-56-project
+            'slug' => str_slug($request->title), //This function to generate a slug from a string ex: create a 5.6 project -> create-a-56-project
+            'user_id' => Auth::id() //This is to get the id of the authenticated user that wrote this post
         ]);
 
         $post->tags()->attach($request->tags);
