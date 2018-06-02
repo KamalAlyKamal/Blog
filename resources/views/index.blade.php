@@ -86,7 +86,7 @@
 
                                         <span class="category">
                                             <i class="seoicon-tags"></i>
-                                            <a href="{{ route('category.single', ['id' => $last_post->category->id]) }}">{{ $last_post->category->name }}</a>
+                                            <a href="{{ route('category.single', ['slug' => $last_post->category->slug]) }}">{{ $last_post->category->name }}</a>
                                         </span>
 
                                         <span class="post__comments">
@@ -140,7 +140,7 @@
 
                                         <span class="category">
                                             <i class="seoicon-tags"></i>
-                                            <a href="{{ route('category.single', ['id' => $second_last_post->category->id]) }}">{{ $second_last_post->category->name }}</a>
+                                            <a href="{{ route('category.single', ['slug' => $second_last_post->category->slug]) }}">{{ $second_last_post->category->name }}</a>
                                         </span>
 
                                         <span class="post__comments">
@@ -190,7 +190,7 @@
 
                                         <span class="category">
                                             <i class="seoicon-tags"></i>
-                                            <a href="{{ route('category.single', ['id' => $third_last_post->category->id]) }}">{{ $third_last_post->category->name }}</a>
+                                            <a href="{{ route('category.single', ['slug' => $third_last_post->category->slug]) }}">{{ $third_last_post->category->name }}</a>
                                         </span>
 
                                         <span class="post__comments">

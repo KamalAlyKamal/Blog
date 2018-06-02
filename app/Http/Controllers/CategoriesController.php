@@ -41,6 +41,7 @@ class CategoriesController extends Controller
 
         $category = new Category;
         $category->name = $request->name;
+        $category->slug = str_slug($request->name);
         $category->save();
 
         Session::flash('success', 'Category created successfully!');
@@ -84,7 +85,7 @@ class CategoriesController extends Controller
         $category = Category::find($id);
 
         $category->name = $request->name;
-
+        $category->slug = str_slug($request->name);
         $category->save();
 
         Session::flash('success', 'Category updated successfully!');

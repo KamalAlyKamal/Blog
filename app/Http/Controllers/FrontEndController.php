@@ -37,9 +37,9 @@ class FrontEndController extends Controller
                            ->with('tags', Tag::all());
    }
 
-   public function category($id)
+   public function category($slug)
    {
-      $category = Category::find($id);
+      $category = Category::where('slug', $slug)->first();
 
       return view('category')->with('category', $category)
                              ->with('title', $category->name)
