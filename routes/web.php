@@ -25,14 +25,12 @@ Route::get('/post/{slug}',[
 		'as' => 'post.single'
 	]);
 
-// Can add slug instead of id here if category table has slug (see post)
 Route::get('/category/{slug}', [
 	'uses' => 'FrontEndController@category',
 	'as' => 'category.single'
 ]);
 
-// Can add slug instead of id here if category table has slug (see post)
-Route::get('/tag/{id}', [
+Route::get('/tag/{slug}', [
 	'uses' => 'FrontEndController@tag',
 	'as' => 'tag.single'
 ]);

@@ -40,7 +40,8 @@ class TagsController extends Controller
             'tag' => 'required'
         ]);
         Tag::create([
-            'tag' => $request->tag
+            'tag' => $request->tag,
+            'slug' => str_slug($request->tag)
         ]);
 
         Session::flash('success', 'Tag created successfully.');
@@ -87,6 +88,7 @@ class TagsController extends Controller
 
         $tag = Tag::find($id);
         $tag->tag = $request->tag;
+        $tag->slug = str_slug($request->tag);
         $tag->save();
 
         Session::flash('success', 'Tag updated successfully.');
