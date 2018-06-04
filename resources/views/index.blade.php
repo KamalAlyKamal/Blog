@@ -25,6 +25,11 @@
     {{-- Toastr js for notifications --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/toastr.min.css') }}">
 
+    {{-- FontAwesome --}}
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+
+    
+
     {{-- Custom Stylesheet --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}">
 
@@ -316,7 +321,9 @@
 <!-- End Subscribe Form -->
 </div>
 
-
+{{-- Start Go Top Button --}}
+    <button id="buttonTop" class="btn btn-primary btn-xs" onclick="goTop();"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+{{-- End Go Top Button --}}
 
 <!-- Footer -->
 
@@ -390,6 +397,8 @@
 <script src="{{asset('app/js/velocity.min.js')}}"></script>
 <script src="{{asset('app/js/ScrollMagic.min.js')}}"></script>
 <script src="{{asset('app/js/animation.velocity.min.js')}}"></script>
+
+
 
 {{-- Custom JavaScript --}}
 <script src="{{asset('js/script.js')}}"></script>
