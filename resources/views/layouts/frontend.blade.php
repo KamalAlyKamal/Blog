@@ -26,6 +26,10 @@
     {{-- Toastr js for notifications --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/toastr.min.css') }}">
 
+    {{-- FontAwesome --}}
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+
+    
     {{-- Custom Stylesheet --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}">
     
@@ -47,6 +51,10 @@
 <body class=" ">
     {{-- Loading DIV --}}
     <div class="loader-div"></div>
+
+    {{-- Go Top Button --}}
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
+
 <div class="content-wrapper">
     
     @include('includes.header')

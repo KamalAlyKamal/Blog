@@ -26,6 +26,10 @@
 <body>
   {{-- Loading DIV --}}
     <div class="loader-div"></div>
+
+    {{-- Go Top Button --}}
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
+    
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
