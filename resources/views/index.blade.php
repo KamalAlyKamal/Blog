@@ -24,6 +24,10 @@
     <!--<link rel="stylesheet" type="text/css" href="app/css/rtl.css">-->
     {{-- Toastr js for notifications --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/toastr.min.css') }}">
+
+    {{-- Custom Stylesheet --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}">
+
     <!--External fonts-->
 
     <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
@@ -40,7 +44,8 @@
 
 
 <body class=" ">
-
+    {{-- Loading DIV --}}
+    <div class="loader-div"></div>
 <div class="content-wrapper">
     
     @include('includes.header')
@@ -385,6 +390,9 @@
 <script src="{{asset('app/js/velocity.min.js')}}"></script>
 <script src="{{asset('app/js/ScrollMagic.min.js')}}"></script>
 <script src="{{asset('app/js/animation.velocity.min.js')}}"></script>
+
+{{-- Custom JavaScript --}}
+<script src="{{asset('js/script.js')}}"></script>
 
 <script type="text/javascript" src="{{ asset('js/toastr.min.js') }}"></script>
 {{-- Success Notification using Toastr js --}}

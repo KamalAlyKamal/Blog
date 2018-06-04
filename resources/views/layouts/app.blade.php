@@ -13,6 +13,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    {{-- Custom Stylesheet --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}">
+
     {{-- Toastr js for notifications --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/toastr.min.css') }}">
     {{-- FontAwesome --}}
@@ -21,6 +24,8 @@
     @yield('styles')
 </head>
 <body>
+  {{-- Loading DIV --}}
+    <div class="loader-div"></div>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
@@ -133,6 +138,9 @@
     <script src="{{ asset('js/app.js') }}"></script>
     {{-- Toastr js for notifications --}}
     <script type="text/javascript" src="{{ asset('js/toastr.min.js') }}"></script>
+
+    {{-- Custom JavaScript --}}
+<script src="{{asset('js/script.js')}}"></script>
 
     {{-- Success Notification using Toastr js --}}
     <script type="text/javascript">

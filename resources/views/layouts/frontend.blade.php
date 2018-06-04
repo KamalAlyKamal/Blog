@@ -25,6 +25,9 @@
 
     {{-- Toastr js for notifications --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/toastr.min.css') }}">
+
+    {{-- Custom Stylesheet --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}">
     
     <!--External fonts-->
 
@@ -42,7 +45,8 @@
 
 
 <body class=" ">
-
+    {{-- Loading DIV --}}
+    <div class="loader-div"></div>
 <div class="content-wrapper">
     
     @include('includes.header')
@@ -161,6 +165,9 @@
 
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5af5fcf24394c3fb"></script>
+
+{{-- Custom JavaScript --}}
+    <script src="{{asset('js/script.js')}}"></script>
 
 <script type="text/javascript" src="{{ asset('js/toastr.min.js') }}"></script>
 {{-- Success Notification using Toastr js --}}
