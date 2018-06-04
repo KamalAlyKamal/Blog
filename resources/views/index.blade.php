@@ -51,6 +51,10 @@
 <body class=" ">
     {{-- Loading DIV --}}
     <div class="loader-div"></div>
+
+    {{-- Go Top Button --}}
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
+    
 <div class="content-wrapper">
     
     @include('includes.header')

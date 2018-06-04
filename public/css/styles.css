@@ -12,3 +12,30 @@
 }
 
 /* End Loader Style */
+
+/* Start Go Top Button */
+.scrollToTop{
+    width:50px; 
+    height:50px;
+    padding:10px; 
+    text-align:center; 
+    background: whiteSmoke;
+    font-weight: bold;
+    color: #444;
+    text-decoration: none;
+    position:fixed;
+    bottom:40px;
+    right:40px;
+    display:none;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    background-color: #f7f9f9;
+    z-index: 9999;
+}
+.scrollToTop:hover{
+    background-color: black;
+}
+.scrollToTop:hover .fa-angle-double-up{
+	color: white;
+}
+/* End Go Top Button */
